@@ -1,0 +1,94 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "babbel-react",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react-hooks",
+    "import"
+  ],
+  "globals": {},
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "rules": {
+    "no-implicit-coercion": "off",
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "my.js",
+            "message": "Please use `src/dataLayer/env/index.js` instead."
+          },
+          {
+            "name": "query-string",
+            "message": "Please use `src/dataLayer/localData/queryString/index.js` instead."
+          },
+          {
+            "name": "tracker-babbel/dist/tracker.js",
+            "message": "Please use `tracker.js` only inside `src/dataLayer/remoteData/babbelEventStream/emitEvent.js`."
+          }
+        ]
+      }
+    ],
+    "max-lines-per-function": [
+      "error",
+      {
+        "max": 60,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "max-lines": [
+      "error",
+      {
+        "max": 100,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "import/no-unused-modules": [
+      "error",
+      {
+        "unusedExports": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.test.js"
+      ],
+      "rules": {
+        "max-lines-per-function": "off",
+        "max-lines": [
+          "error",
+          {
+            "max": 120,
+            "skipBlankLines": true,
+            "skipComments": true
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "webpack": {
+        "config": "./config/webpack.base.js"
+      }
+    }
+  }
+}

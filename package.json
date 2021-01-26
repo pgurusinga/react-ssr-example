@@ -1,0 +1,49 @@
+{
+  "name": "plans.microverse",
+  "version": "1.0.0",
+  "description": "Plans Microverse@Next SSR",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:lambda && npm run build:spa",
+    "build:lambda": "webpack --config ./config/webpack.lambda.js",
+    "build:spa": "webpack --config ./config/webpack.spa.js",
+    "watch": "npm-run-all --parallel dev:*",
+    "dev:lambda": "webpack --config ./config/webpack.lambda.js --watch",
+    "dev:spa": "webpack --config ./config/webpack.spa.js --watch",
+    "dev:server": "rm -rf public && nodemon --exec \"node public/plans.lambda.js\"",
+    "build:watch": "nodemon ./plans.lambda/index.js",
+    "test": "jest"
+  },
+  "author": "Popty Ping",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@reach/router": "^1.3.4",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.18.0",
+    "eslint-config-babbel": "^4.1.0",
+    "eslint-config-babbel-react": "^3.0.3",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-no-only-tests": "^2.4.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "ignore-styles": "^5.0.1",
+    "npm-run-all": "^4.1.5",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-merge": "^5.7.3",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
