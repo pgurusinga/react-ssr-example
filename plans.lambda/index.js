@@ -7,7 +7,7 @@ import bodyParser from 'body-parser';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import App from '../${path-to-application}/App';
+import App from '../plans.spa/App';
 
 const PORT = 8000;
 
